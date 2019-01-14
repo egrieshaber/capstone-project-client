@@ -1,0 +1,23 @@
+<!-- takes api data that's passed in. In this case 'logs' holds the data from the api -->
+<!-- For each post with the api Data,
+we will store the below HTML with the new Api Data within the returned variable -->
+<!-- log is the current iteration of the api Data -->
+
+<!-- data-id is set to the unqiue id of each log that is loaded -->
+<!-- we are also limiting the number of characters included from log.createdAt
+so that it has a more pleasing appearance. This will eventually be replaced by using moment.js
+on the backend to format the createdAt before it reaches the clent.  -->
+{{#each logs as |log|}}
+  <section data-id={{log._id}} class="log">
+    <div class="log-header">
+      <h4>{{log.owner.username}}</h4>
+    </div>
+    <div class="log-body">
+      <p>{{limit log.createdAt 10}}</p>
+      <h6>{{log.text}}</h6>
+    </div>
+    <div>
+    </div>
+  </section>
+
+{{/each}}

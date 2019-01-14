@@ -1,0 +1,15 @@
+<section data-id={{log._id}} class="log">
+  <div class="log-header">
+    <h4>{{log.owner.username}}</h4>
+  </div>
+  <div class="log-body">
+    <p>{{limit log.createdAt 10}}</p>
+    <form id='update-text'>
+      <input type="text" name="log[text]" type='text' value="{{log.text}}">
+      <div>
+        <input type="submit" value='Confirm'>
+      </div>
+    </form>
+  </div>
+
+</section>

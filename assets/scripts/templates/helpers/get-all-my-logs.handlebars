@@ -1,0 +1,26 @@
+<!-- this template first checks to see if the user has made any logs.
+If not, logs is falsey and the user recieves a message that they've never posted a log. -->
+
+{{#if logs}}
+
+{{#each logs as |log|}}
+
+  <section data-id={{log._id}} class="log">
+    <div class="log-header">
+      <h4>{{log.owner.username }}</h4>
+    </div>
+    <div class="log-body">
+      <p>{{limit log.createdAt 10}}</p>
+      <h6>{{log.text}}</h6>
+    </div>
+    <div>
+      <button class='update-log'>Edit</button><button class='delete-log'>Delete</button>
+    </div>
+  </section>
+
+{{/each}}
+
+{{else }}
+  <div>You've never posted!</div>
+
+{{/if}}
