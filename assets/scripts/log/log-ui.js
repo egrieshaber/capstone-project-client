@@ -3,9 +3,9 @@
 // const showToast = require('../toastr/toasts')
 
 // assigns our handlebars template to variables
-const allLogsTemplate = require('../templates/get-all-logs.handlebars')
-const allMyLogsTemplate = require('../templates/get-all-my-logs.handlebars')
-const oneLogTemplate = require('../templates/get-one-log-form.handlebars')
+const allLogsTemplate = require('../templates/helpers/get-all-logs.handlebars')
+const allMyLogsTemplate = require('../templates/helpers/get-all-my-logs.handlebars')
+const oneLogTemplate = require('../templates/helpers/get-one-log-form.handlebars')
 // const myLatestPostTemplate = require('../templates/get-my-latest-post.handlebars')
 
 // runs on a succesful create post
