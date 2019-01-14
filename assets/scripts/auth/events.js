@@ -3,7 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 // const store = require('../store')
-const logs = require('../post/post-event.js')
+const logs = require('../log/log-event.js')
 
 // adds the event handlers for authorization buttons
 const addEvents = () => {
