@@ -1,6 +1,6 @@
 const store = require('../store')
 // const posts = require('../post/post-event.js')
-const showToast = require('../toastr/toasts')
+// const showToast = require('../toastr/toasts')
 
 // showToast requires ui action as param to display
 // feedback to the user
@@ -12,14 +12,14 @@ const signUpSuccess = () => {
 
   // showToast takes is two arguments, (action, event)
   // look at the scripts/toastr/toasts.js module to see how these arguments are used.
-  showToast('signup-pass', 'ui')
+  // showToast('signup-pass', 'ui')
 }
 
 const signUpFailure = () => {
   // clear form values
   $('#sign-up')[0].reset()
 
-  showToast('signup-fail', 'ui')
+  // showToast('signup-fail', 'ui')
 }
 
 const signInSuccess = data => {
@@ -31,7 +31,7 @@ const signInSuccess = data => {
   store.user = data.user
 
   // user login feedback
-  showToast('signin-pass', 'ui')
+  // showToast('signin-pass', 'ui')
 
   // toggle view for online users
   // changes the page view so that signed in users will see their facebird feed
@@ -50,13 +50,13 @@ const signInFailure = () => {
   // clear form values
   $('#sign-in')[0].reset()
 
-  showToast('signin-fail', 'ui')
+  // showToast('signin-fail', 'ui')
 }
 
 const changePassSuccess = () => {
   // $('#change-pass-form')[0].reset()
 
-  showToast('changepass-success', 'ui')
+  // showToast('changepass-success', 'ui')
 
   // clears password form (should be standarized. Does the same thing as $('.pass-form')[0].reset())
   $('.pass-form').val('')
@@ -68,11 +68,11 @@ const changePassFailure = () => {
   // clear password form
   $('.pass-form').val('')
 
-  showToast('changepass-fail', 'ui')
+  // showToast('changepass-fail', 'ui')
 }
 
 const signOutSuccess = () => {
-  showToast('signout-pass', 'ui')
+  // showToast('signout-pass', 'ui')
 
   // return to the first view
   $('#sign-up').toggle()
@@ -87,7 +87,7 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = () => {
-  showToast('signout-fail', 'ui')
+  // showToast('signout-fail', 'ui')
 
   // still removes user data from the local store.
   store.user = ''

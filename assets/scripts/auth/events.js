@@ -3,7 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 // const store = require('../store')
-const posts = require('../post/post-event.js')
+const logs = require('../post/post-event.js')
 
 // adds the event handlers for authorization buttons
 const addEvents = () => {
@@ -51,7 +51,7 @@ const onSignIn = event => {
   api.signIn(data)
     .then(ui.signInSuccess)
     // after successful ui response, then triggers gets all posts function in post/post-event
-    .then(posts.onGetAllPosts)
+    .then(logs.onGetAllLogs)
     .catch(ui.signInFailure)
 }
 
