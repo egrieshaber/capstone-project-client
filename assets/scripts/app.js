@@ -7,11 +7,11 @@
 // require('./example')
 
 const authEvents = require('./auth/events')
-const postEvents = require('./post/post-event')
+const logEvents = require('./log/log-event')
 
 $(() => {
   // adds event handlers with auth/events.js
   authEvents.addEvents()
   // adds event handlers with log/post-event.js
-  postEvents.addPostEventListeners()
+  logEvents.addLogEventListeners()
 })
