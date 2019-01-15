@@ -5,7 +5,9 @@
   <div class="log-body">
     <p>{{limit log.createdAt 10}}</p>
     <form id='update-text'>
+      <input type="text" name="log[title]" type='text' value="{{log.title}}">
       <input type="text" name="log[text]" type='text' value="{{log.text}}">
+      <input type="text" name="log[link]" type='text' value="{{log.link}}">
       <div>
         <input type="submit" value='Confirm'>
       </div>
