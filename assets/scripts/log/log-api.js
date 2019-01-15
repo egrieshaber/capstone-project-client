@@ -34,7 +34,7 @@ const getAllLogs = () => {
 const updateLog = (formData, logId) => {
   const userToken = userStore.user.token
   return $.ajax({
-    url: config.apiUrl + `/posts/${logId}`,
+    url: config.apiUrl + `/logs/${logId}`,
     method: 'PATCH',
     headers: {Authorization: `Token token=${userToken}`},
     data: formData
@@ -44,7 +44,7 @@ const updateLog = (formData, logId) => {
 const deleteLog = logId => {
   const userToken = userStore.user.token
   return $.ajax({
-    url: config.apiUrl + `/posts/${logId}`,
+    url: config.apiUrl + `/logs/${logId}`,
     method: 'DELETE',
     headers: {Authorization: `Token token=${userToken}`}
   })
@@ -53,7 +53,7 @@ const deleteLog = logId => {
 const getAllMyLogs = () => {
   const userToken = userStore.user.token
   return $.ajax({
-    url: config.apiUrl + '/logs/myLogs',
+    url: config.apiUrl + '/myLogs',
     method: 'GET',
     headers: {Authorization: `Token token=${userToken}`}
   })
@@ -62,7 +62,7 @@ const getAllMyLogs = () => {
 const getOneLog = logId => {
   const userToken = userStore.user.token
   return $.ajax({
-    url: config.apiUrl + `/posts/${logId}`,
+    url: config.apiUrl + `/logs/${logId}`,
     method: 'GET',
     headers: {Authorization: `Token token=${userToken}`}
   })

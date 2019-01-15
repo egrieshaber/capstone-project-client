@@ -77,7 +77,7 @@ const signOutSuccess = () => {
   // return to the first view
   $('#sign-up').toggle()
   $('#sign-in').toggle()
-  $('#facebird').toggle()
+  // $('#facebird').toggle()
   $('#user-online').toggle()
   // close user-auth modal
   $('#user-modal').modal('hide')

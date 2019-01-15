@@ -3,9 +3,9 @@
 // const showToast = require('../toastr/toasts')
 
 // assigns our handlebars template to variables
-const allLogsTemplate = require('../templates/helpers/get-all-logs.handlebars')
-const allMyLogsTemplate = require('../templates/helpers/get-all-my-logs.handlebars')
-const oneLogTemplate = require('../templates/helpers/get-one-log-form.handlebars')
+const allLogsTemplate = require('../templates/get-all-logs.handlebars')
+const allMyLogsTemplate = require('../templates/get-all-my-logs.handlebars')
+const oneLogTemplate = require('../templates/get-one-log-form.handlebars')
 // const myLatestPostTemplate = require('../templates/get-my-latest-post.handlebars')
 
 // runs on a succesful create post
@@ -18,17 +18,19 @@ const createLogSuccess = apiData => {
 }
 
 const createLogFailure = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   // showToast('createpost-fail', 'post')
 }
 
 const getAllLogsSuccess = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
+  // console.log('log success')
   // showToast('allposts-pass', 'post')
 
   // calls the handlebars template "allPostsTemplate"
   // with the api response data, structured in a posts object
   // the handlebars template is a js function that can accept data as an object.
+  console.log('more log success')
   const allTheLogs = allLogsTemplate({ logs: apiData.logs })
   // inserts the formatted template data into the DOM
   $('#feed').html(allTheLogs)
@@ -36,7 +38,7 @@ const getAllLogsSuccess = apiData => {
 }
 
 const getAllLogsFailure = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   // showToast('allposts-fail', 'post')
 }
 
@@ -56,7 +58,7 @@ const getAllLogsFailure = apiData => {
 // }
 
 const updateLogSuccess = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   // showToast('updatepost-pass', 'post')
 
   $('#update-modal').modal('hide')
@@ -64,35 +66,36 @@ const updateLogSuccess = apiData => {
 }
 
 const updateLogFailure = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   // console.log(`you didn't update a post!`)
   // showToast('updatepost-fail', 'post')
 }
 
 const deleteLogSuccess = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   // showToast('deletepost-pass', 'post')
 }
 
 const deleteLogFaliure = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   // showToast('deletepost-fail', 'post')
 }
 
 const getAllMyLogsSuccess = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   const allMyLogs = allMyLogsTemplate({ logs: apiData.logs })
   $('#feed').html(allMyLogs)
   // showToast('allmyposts-pass', 'post')
 }
 
 const getAllMyLogsFailure = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
+  console.log('get my logs failed')
   // showToast('allmyposts-fail', 'post')
 }
 
 const getOneLogSuccess = apiData => {
-  // console.log(apiData)
+  console.log(apiData)
   const modalContent = oneLogTemplate({ log: apiData.log })
   $('#update-modal-body').html(modalContent)
 }

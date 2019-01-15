@@ -33,7 +33,7 @@ const changeFeedView = () => {
   // shows/hides create post form
   $('#create-log-container').toggle()
   // shows/hides most recent post
-  $('#recent-log-container').toggle()
+  // $('#recent-log-container').toggle()
   // if my posts arent in the view
   if (!currentFeedView) {
     // add my posts to the feed
