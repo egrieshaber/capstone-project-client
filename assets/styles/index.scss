@@ -22,16 +22,17 @@ main {
     #sideBar {
       margin: 0;
       padding: 0;
-      height: 100%;
-      width: 250px;
+      height: 16%;
+      width: 100%;
       position: fixed;
-      background: lightblue;
+      background: grey;
       top: 0;
       left: 0;
 
       li {
         display: flex;
-        padding: 20px;
+        padding: 0.5px;
+        height: 100%;
 
         &.hover {
           color: white;
@@ -39,17 +40,25 @@ main {
       }
     }
 
+    .menu-item {
+      font-size: 1.5em;
+      display: flex;
+      margin-left: 10px;
+    }
+
     #content {
       margin-left: 250px;
 
       #top-feed-item {
         background: rgb(101, 244, 66);
-        border-radius: 75%;
+        border-top-left-radius: 85px 55px;
+        border-top-right-radius: 100px 20px;
+        border-bottom-left-radius: 99px 90px;
+        border-bottom-left-radius: 100px 7px;
 
         #create-log-container {
           display: none;
           text-align: center;
-          border-radius: 75%;
 
           form {
             // margin-left: 100px;
@@ -62,14 +71,14 @@ main {
               margin-top: 15px;
               // margin-left: 260px;
               width: 25vw;
-              border-radius: 75%;
+              border-top-left-radius: 75px, 55px;
             }
           }
         }
       }
 
       #feed {
-        margin: 5px;
+        margin: 20px;
       }
     }
   }
@@ -83,10 +92,9 @@ main {
 
 .menu-but {
   font-size: 1.5em;
-}
-
-.menu-item {
-  font-size: 1.5em;
+  position: relative;
+  top: 10px;
+  left: 40px;
 }
 
 button {
@@ -114,8 +122,11 @@ button:hover {
 
 // menu toggle btn css
 .switch {
-  margin-left: 3.3em;
+  margin-left: 5.3em;
+  margin-top: 5px;
   position: relative;
+  top: 10px;
+  left: 30px;
   display: inline-block;
   width: 60px;
   height: 34px;
@@ -137,8 +148,8 @@ button:hover {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
 }
 
 .slider::before {
@@ -185,4 +196,10 @@ input:checked + .slider::before {
 .log-header {
   border-style: dotted;
   border-color: white;
+}
+
+.change-view {
+  position: relative;
+  top: 40px;
+  left: 40px;
 }
