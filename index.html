@@ -6,13 +6,13 @@
 
 			<!-- Do not add `link` tags-->
 			<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-			<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> -->
+			<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
 			<!-- Do not add `script` tags-->
 			<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
 			<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-			<!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
-			<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> -->
+			<!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> -->
 
 		</head>
 		<body>
@@ -20,7 +20,6 @@
 
 			<header id="field-recording-log">
 
-				<!-- <div id="quail-img"><img src="./public/quail-logo.png" alt="Quaile logo image"></div> -->
 				<h1>Field Recording Log</h1>
 				<p>field recording log</p>
 
@@ -40,7 +39,7 @@
 							<input type="password" name="credentials[password]" placeholder="Password">
 							<input type="password" name="credentials[password_confirmation]" placeholder="Comfirm Password">
 							<input type="submit" value="Sign-Up">
-
+              <p id="sign-up-message"></p>
 						</fieldset>
 					</form>
 
@@ -52,6 +51,7 @@
 								<!-- <input type="text" name="nickname" placeholder="Nickname (required)"> -->
 								<input type="password" name="credentials[password]" placeholder="Password">
 								<input type="submit" value="Sign-In">
+                <p id="sign-in-message"></p>
 							</fieldset>
 						</form>
 				</div>
@@ -92,7 +92,7 @@
 									</form>
                   <!-- audio player -->
                   <audio controls>
-                    <source src="https://my-wdi-uploads-2.s3.amazonaws.com/testing.wav" type="audio/ogg">
+                    <source src="" type="audio/ogg">
                       <source src="" type="audio/mpeg">
                         Your browser does not support the audio element.
                   </audio>
@@ -120,6 +120,13 @@
 
 						</div>
 						<div id="feed">
+              <div id="create-log-message"></div>
+              <div id="get-log-message"></div>
+              <div id="update-log-message"></div>
+              <div id="delete-log-message"></div>
+              <div id="get-my-log-message"></div>
+
+
 							<!-- handlebars templating -->
 
 
@@ -166,6 +173,8 @@
 									<input class='pass-form' name='passwords[new]' type='password'>
 								</div>
 								<input id="change-pass" type="submit" value='Confirm'>
+                <p id="change-pass-message"></p>
+                <p id="sign-out-message"></p>
 							</form>
 							<button id='launch-change-password' class='btn btn-secondary form-button'>Change Password</button>
 							<button id="sign-out" class='btn btn-secondary form-button'>Sign Out</button>
