@@ -1,6 +1,6 @@
 'use strict'
 
-// const showToast = require('../toastr/toasts')
+const showToast = require('../toastr/toasts')
 
 // assigns our handlebars template to variables
 const allLogsTemplate = require('../templates/get-all-logs.handlebars')
@@ -8,38 +8,38 @@ const allMyLogsTemplate = require('../templates/get-all-my-logs.handlebars')
 const oneLogTemplate = require('../templates/get-one-log-form.handlebars')
 // const myLatestPostTemplate = require('../templates/get-my-latest-post.handlebars')
 
-const emptyMessage = () => {
-  setTimeout(function () {
-    $('#create-log-message').text('')
-    $('#get-log-message').text('')
-    $('#update-log-message').text('')
-    $('#delete-log-message').text('')
-    $('#get-my-log-message').text('')
-  }, 1500)
-}
+// const emptyMessage = () => {
+//   setTimeout(function () {
+//     $('#create-log-message').text('')
+//     $('#get-log-message').text('')
+//     $('#update-log-message').text('')
+//     $('#delete-log-message').text('')
+//     $('#get-my-log-message').text('')
+//   }, 1500)
+// }
 
 // runs on a succesful create post
 const createLogSuccess = apiData => {
   // uses toastr to tell user of a succesful create posts
   // Look in auth/ui for a greater explanation of how toastr works
-  // showToast('createpost-pass', 'post')
+  showToast('createlog-pass', 'log')
   // clears form data
   $('#new-log')[0].reset()
-  $('#create-log-message').text('Created Log Successfully!')
-  emptyMessage()
+  // $('#create-log-message').text('Created Log Successfully!')
+  // emptyMessage()
 }
 
 const createLogFailure = apiData => {
   // console.log(apiData)
-  // showToast('createpost-fail', 'post')
-  $('#create-log-message').text('Error Creating Log!')
-  emptyMessage()
+  showToast('createlog-fail', 'log')
+  // $('#create-log-message').text('Error Creating Log!')
+  // emptyMessage()
 }
 
 const getAllLogsSuccess = apiData => {
   // console.log(apiData)
   // console.log('log success')
-  // showToast('allposts-pass', 'post')
+  showToast('alllogs-pass', 'log')
 
   // calls the handlebars template "allPostsTemplate"
   // with the api response data, structured in a posts object
@@ -48,16 +48,16 @@ const getAllLogsSuccess = apiData => {
   const allTheLogs = allLogsTemplate({ logs: apiData.logs })
   // inserts the formatted template data into the DOM
   $('#feed').html(allTheLogs)
-  $('#create-log-message').text('Got all logs!')
-  emptyMessage()
+  // $('#create-log-message').text('Got all logs!')
+  // emptyMessage()
   return ''
 }
 
 const getAllLogsFailure = apiData => {
   // console.log(apiData)
-  // showToast('allposts-fail', 'post')
-  $('#create-log-message').text('Error getting logs!')
-  emptyMessage()
+  showToast('allposts-fail', 'post')
+  // $('#create-log-message').text('Error getting logs!')
+  // emptyMessage()
 }
 
 // const getLatestPostSuccess = apiData => {
@@ -77,9 +77,9 @@ const getAllLogsFailure = apiData => {
 
 const updateLogSuccess = apiData => {
   // console.log(apiData)
-  // showToast('updatepost-pass', 'post')
-  $('#update-log-message').text('Updated Log Successfully!')
-  emptyMessage()
+  showToast('updatelog-pass', 'log')
+  // $('#update-log-message').text('Updated Log Successfully!')
+  // emptyMessage()
   $('#update-modal').modal('hide')
   return ''
 }
@@ -87,40 +87,40 @@ const updateLogSuccess = apiData => {
 const updateLogFailure = apiData => {
   // console.log(apiData)
   // console.log(`you didn't update a post!`)
-  // showToast('updatepost-fail', 'post')
-  $('#update-log-message').text('Error Updating Log!')
-  emptyMessage()
+  showToast('updatelog-fail', 'log')
+  // $('#update-log-message').text('Error Updating Log!')
+  // emptyMessage()
 }
 
 const deleteLogSuccess = apiData => {
   // console.log(apiData)
-  // showToast('deletepost-pass', 'post')
-  $('#delete-log-message').text('Successfully deleted log!')
-  emptyMessage()
+  showToast('deletelog-pass', 'log')
+  // $('#delete-log-message').text('Successfully deleted log!')
+  // emptyMessage()
 }
 
 const deleteLogFaliure = apiData => {
   // console.log(apiData)
-  // showToast('deletepost-fail', 'post')
-  $('#delete-log-message').text('Error updating log!')
-  emptyMessage()
+  showToast('deletelog-fail', 'log')
+  // $('#delete-log-message').text('Error updating log!')
+  // emptyMessage()
 }
 
 const getAllMyLogsSuccess = apiData => {
   // console.log(apiData)
   const allMyLogs = allMyLogsTemplate({ logs: apiData.logs })
-  $('#get-my-log-message').text('Success getting your logs!')
-  emptyMessage()
+  // $('#get-my-log-message').text('Success getting your logs!')
+  // emptyMessage()
   $('#feed').html(allMyLogs)
-  // showToast('allmyposts-pass', 'post')
+  showToast('allmylogs-pass', 'log')
 }
 
 const getAllMyLogsFailure = apiData => {
   // console.log(apiData)
   // console.log('get my logs failed')
-  // showToast('allmyposts-fail', 'post')
-  $('#get-my-log-message').text('Error getting your logs!')
-  emptyMessage()
+  showToast('allmylogs-fail', 'log')
+  // $('#get-my-log-message').text('Error getting your logs!')
+  // emptyMessage()
 }
 
 const getOneLogSuccess = apiData => {

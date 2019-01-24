@@ -130,7 +130,7 @@ const onDeleteLog = () => {
 
   const logId = $(event.target).closest('section').data('id')
   api.deleteLog(logId)
-    .then(ui.deletePostSuccess)
+    .then(ui.deleteLogSuccess)
     // calls the get all my posts to show that the post has been deleted
     .then(onGetAllMyLogs)
     .catch(ui.deleteLogFaliure)

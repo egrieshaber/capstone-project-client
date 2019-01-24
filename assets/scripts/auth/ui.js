@@ -1,52 +1,52 @@
 const store = require('../store')
 // const posts = require('../post/post-event.js')
-// const showToast = require('../toastr/toasts')
+const showToast = require('../toastr/toasts')
 
 // showToast requires ui action as param to display
 // feedback to the user
 
-const emptyMessage = () => {
-  setTimeout(function () {
-    $('#sign-up-message').text('')
-    $('#sign-in-message').text('')
-    $('#change-pass-message').text('')
-    $('#sign-out-message').text('')
-  }, 1500)
-}
+// const emptyMessage = () => {
+//   setTimeout(function () {
+//     $('#sign-up-message').text('')
+//     $('#sign-in-message').text('')
+//     $('#change-pass-message').text('')
+//     $('#sign-out-message').text('')
+//   }, 1500)
+// }
 
 // creates ui response showing successful sign up
 const signUpSuccess = () => {
   // clear form values for signup form
   $('#sign-up')[0].reset()
-  $('#sign-up-message').text('Signed up Successfully!')
-  emptyMessage()
+  // $('#sign-up-message').text('Signed up Successfully!')
+  // emptyMessage()
 
   // showToast takes is two arguments, (action, event)
   // look at the scripts/toastr/toasts.js module to see how these arguments are used.
-  // showToast('signup-pass', 'ui')
+  showToast('signup-pass', 'ui')
 }
 
 const signUpFailure = () => {
   // clear form values
   $('#sign-up')[0].reset()
-  $('#sign-up-message').text('Error on Sign-Up!')
-  emptyMessage()
+  // $('#sign-up-message').text('Error on Sign-Up!')
+  // emptyMessage()
 
-  // showToast('signup-fail', 'ui')
+  showToast('signup-fail', 'ui')
 }
 
 const signInSuccess = data => {
   // clear form values
   $('#sign-in')[0].reset()
-  $('#sign-in-message').text('Signed in Successfully! ')
-  emptyMessage()
+  // $('#sign-in-message').text('Signed in Successfully! ')
+  // emptyMessage()
 
   // assigns api response data into the store object within store.js
   // the data's user object is assigned to a user object within the store
   store.user = data.user
 
   // user login feedback
-  // showToast('signin-pass', 'ui')
+  showToast('signin-pass', 'ui')
 
   // toggle view for online users
   // changes the page view so that signed in users will see their facebird feed
@@ -64,21 +64,21 @@ const signInSuccess = data => {
 const signInFailure = () => {
   // clear form values
   $('#sign-in')[0].reset()
-  $('#sign-in-message').text('Error on Sign-in!')
-  emptyMessage()
+  // $('#sign-in-message').text('Error on Sign-in!')
+  // emptyMessage()
 
-  // showToast('signin-fail', 'ui')
+  showToast('signin-fail', 'ui')
 }
 
 const changePassSuccess = () => {
   // $('#change-pass-form')[0].reset()
 
-  // showToast('changepass-success', 'ui')
+  showToast('changepass-success', 'ui')
 
   // clears password form (should be standarized. Does the same thing as $('.pass-form')[0].reset())
   $('.pass-form').val('')
-  $('#change-pass-message').text('Changed Password Successfully!')
-  emptyMessage()
+  // $('#change-pass-message').text('Changed Password Successfully!')
+  // emptyMessage()
   // hides modal
   $('#user-modal').modal('hide')
 }
@@ -86,14 +86,14 @@ const changePassSuccess = () => {
 const changePassFailure = () => {
   // clear password form
   $('.pass-form').val('')
-  $('#change-pass-message').text('Error on Change Password!')
-  emptyMessage()
+  // $('#change-pass-message').text('Error on Change Password!')
+  // emptyMessage()
 
-  // showToast('changepass-fail', 'ui')
+  showToast('changepass-fail', 'ui')
 }
 
 const signOutSuccess = () => {
-  // showToast('signout-pass', 'ui')
+  showToast('signout-pass', 'ui')
 
   // return to the first view
   $('#sign-up').toggle()
@@ -102,16 +102,16 @@ const signOutSuccess = () => {
   $('#user-online').toggle()
   // close user-auth modal
   $('#user-modal').modal('hide')
-  $('#sign-out-message').text('Signed Out Successfully!')
-  emptyMessage()
+  // $('#sign-out-message').text('Signed Out Successfully!')
+  // emptyMessage()
 
   // removes user data from the local store
   store.user = ''
 }
 
 const signOutFailure = () => {
-  // showToast('signout-fail', 'ui')
-  $('#sign-out-message').text('Error on Sign Out')
+  showToast('signout-fail', 'ui')
+  // $('#sign-out-message').text('Error on Sign Out')
   // still removes user data from the local store.
   store.user = ''
 }

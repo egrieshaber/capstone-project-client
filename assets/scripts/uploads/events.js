@@ -14,8 +14,8 @@ const onUploadFile = function (event) {
   const formData = new FormData(event.target)
 
   api.createMulti(formData)
-    .then(ui.uploadSuccess)
-    .catch(ui.uploadError)
+    .then(ui.createUploadSuccess)
+    .catch(ui.createUploadFailure)
 
   // for (const pair of formData.entries()) {
   //   console.log(pair[0] + ', ' + pair[1])
