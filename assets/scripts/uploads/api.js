@@ -22,7 +22,7 @@ const config = require('../config.js')
 // uploading an audio file
 const createMulti = function (data) {
   return $.ajax({
-    url: config.apiUrl,
+    url: config.apiUrl + '/uploads',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
