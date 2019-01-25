@@ -2,6 +2,7 @@
 
 const store = require('../store.js')
 const config = require('../config.js')
+// const userStore = require('../store.js')
 //
 // const userStore = require('../userStore.js')
 //
@@ -22,7 +23,7 @@ const config = require('../config.js')
 // uploading an audio file
 const createMulti = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/uploads',
+    url: config.apiUrl + '/uploads/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
