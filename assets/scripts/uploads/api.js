@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
-// const config = require('../config.js')
+const config = require('../config.js')
 //
 // const userStore = require('../userStore.js')
 //
@@ -22,7 +22,7 @@ const store = require('../store.js')
 // uploading an audio file
 const createMulti = function (data) {
   return $.ajax({
-    url: 'http://localhost:4741/uploads',
+    url: config.apiUrl,
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
