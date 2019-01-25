@@ -1,113 +1,70 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+Field Recording Log - Client
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+FRL repositories:
+FRL - Client: https://github.com/egrieshaber/capstone-project-client
+FRL - Api: https://github.com/egrieshaber/capstone-project-express-api
 
-## Installation
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+FRL deployed sites:
+FRL - Client: https://egrieshaber.github.io/capstone-project-client/
+FRL - Api: https://git.heroku.com/warm-plateau-38122.git
 
-## Structure
+What is Field Recording Log?
+  Field Recording Log, is a place where users are able to upload their own audio links and share them in a live feed with titles and notes explaining what they want about their recordings.  This provides a meaningful way to share audio recordings and to potentially colaborate with others.
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+How FRL works.
+  Client
+    When the user logs in, FRL is able to fetch the entire log database, sorting it by most to least recent.  These logs include those made by the current user and also all other users.  By toggling with a button on the top of the screen, the use is able able to see only their own logs, and also a form in which they are able to create new logs, and update their own audio files to an AWS s3 data storage bucket.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+    All log data is processed through handlebars before entering the feed.  The user is able to CRUD their own database using RESTful AJAX routes.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+  API
+    The FRL Api is built using Express with Mongoose data validation.  It recieves AJAX requests from the client and communicates with the MongoDB database to return responses.
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+    The Api requires that all users must sign up with a username, email and password.  All logs belong to a user who is also able to update and delete logs that belong to them.  User authenticaton also allows for uploading of files to AWS s3 data storage bucket.
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Technologies Used:
 
-## Adding Images
+Client
+  HTML / CSS
+  JavaScript
+  jQuery
+  Ajax
+  Handlebars.js
+  SASS
+  Bootstrap
+  Toastr
 
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
+API
+  JavaScript
+  Express
+  MongoDB
+  Mongoose
+  Node.js
+  AWS
 
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
+Wireframe: https://projects.invisionapp.com/freehand/document/aKsqDnX3G
 
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
+ERD: https://projects.invisionapp.com/freehand/document/smziNAdWB
 
-## Adding Fonts
+User Stories:
+  As a user I want to be able to post a log
+  As a user I want to be able to see all my logs
+  As a user I want to be able to update and delete my logs
+  As a user I want to be able to see other users' logs
+  As a user I want to be able to upload audio files to s3
+  As a user I want to be able to listen to other users' audio files
+  As a user I want to be able to download other users' audio files
 
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
 
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
+Planning
+  The first day of my planning process I outlined by basic objectives and workflow in order to meet a Minimum Viable Product.  This process also included drafting a wireframe, ERD, and user stories.
 
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
+  I spent the first few days building and testing the API for user and logs, and also tested them in the terminal via curl-scripts.  Next, I spent time connecting the front end with continued testing.  After this I established an AWS s3 data storage bucket in order to upload audio files.  Currently I have yet to attach this option to the user logs, and it has become my next immediate goal for this project.
 
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
+Problem Solving
+  I often referred to previous projects and turned to Stack Overflow when I came across difficulties, using error driven development to find my way towards the appropriate resources and solutions.  see also: console logs!
 
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Unfinished work
+  My next, immediate goal is to automatically insert html audio players into each user log, in order for users to be able to sample each other's recordings and download as well.
