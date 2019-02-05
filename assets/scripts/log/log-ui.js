@@ -20,6 +20,7 @@ const oneLogTemplate = require('../templates/get-one-log-form.handlebars')
 
 // runs on a succesful create post
 const createLogSuccess = apiData => {
+  // console.log(apiData)
   // uses toastr to tell user of a succesful create posts
   // Look in auth/ui for a greater explanation of how toastr works
   showToast('createlog-pass', 'log')

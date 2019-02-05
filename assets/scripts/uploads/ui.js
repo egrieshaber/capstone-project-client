@@ -14,6 +14,12 @@ const uploadError = function (error) {
 
 // runs on a succesful create post
 const createUploadSuccess = apiData => {
+  console.log(apiData.upload.url)
+  // populates the media player with the S3 link
+  $('#audio-upload').attr('src', apiData.upload.url)
+  $('#audio-player')[0].load()
+  // populates link form with s3 link
+  $('#link-input').val(apiData.upload.url)
   // uses toastr to tell user of a succesful create posts
   // Look in auth/ui for a greater explanation of how toastr works
   showToast('createupdate-pass', 'update')

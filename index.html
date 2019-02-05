@@ -87,12 +87,12 @@
 										<legend>Enter Your Recording</legend>
                     <input type="text" name="log[title]" placeholder="Title">
 										<input type="text" name="log[text]" placeholder="Notes">
-                    <input type="text" name="log[link]" placeholder="Link">
+                    <input id ="link-input" type="text" name="log[link]" placeholder="Link">
 										<input class='align-self-center' id="create-log-btn"type="submit" value='Confirm'>
 									</form>
                   <!-- audio player -->
-                  <audio controls>
-                    <source src="https://s3.amazonaws.com/my-wdi-uploads-2/ok_google.wav" type="audio/ogg">
+                  <audio id="audio-player" controls>
+                    <source id="audio-upload" src="" type="audio/ogg">
                       <source src="" type="audio/mpeg">
                         Your browser does not support the audio element.
                   </audio>

@@ -12,7 +12,11 @@ If not, logs is falsey and the user recieves a message that they've never posted
     <div class="log-body">
       <h6>{{log.title}}</h6>
       <h6>{{log.text}}</h6>
-      <h6>{{log.link}}</h6>
+      <audio id="audio-player" controls>
+        <source id="audio-upload" src={{log.link}} type="audio/ogg">
+          <source src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+      </audio>
     </div>
     <div>
       <button class='update-log'>Edit</button><button class='delete-log'>Delete</button>
