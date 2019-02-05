@@ -15,7 +15,11 @@ on the backend to format the createdAt before it reaches the clent.  -->
     <div class="log-body">
       <h6>{{log.title}}</h6>
       <h6>{{log.text}}</h6>
-      <h6>{{log.link}}</h6>
+      <audio id="audio-player" controls>
+        <source id="audio-upload" src={{log.link}} type="audio/ogg">
+          <source src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+      </audio>
     </div>
     <div>
     </div>
