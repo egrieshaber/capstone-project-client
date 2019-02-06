@@ -37,8 +37,8 @@ const logToasts = {
   'deletelog-pass': new Toast('success', 'toast-top-right', 'Removing your log...'),
   'deletelog-fail': new Toast('warning', 'toast-top-right', 'Failed to remove your log!'),
 
-  'allmylogs-pass': new Toast('info', 'toast-top-right', 'Loading all of your posts...'),
-  'allmylogs-fail': new Toast('warning', 'toast-top-right', 'Failed to load your posts!')
+  'allmylogs-pass': new Toast('info', 'toast-top-right', 'Loading all of your logs...'),
+  'allmylogs-fail': new Toast('warning', 'toast-top-right', 'Failed to load your logs!')
   // 'mylatestpost-success': new Toast('success', 'toast-top-right', 'you did it'),
   // 'mylatestpost-fail': new Toast('warning', 'toast-top-right', 'Failed to load your latest post')
 
@@ -47,6 +47,10 @@ const logToasts = {
 const uploadToasts = {
   'createupload-pass': new Toast('success', 'toast-top-right', 'Uploaded Successfully!'),
   'createupload-fail': new Toast('warning', 'toast-top-right', 'Failed to upload!')
+}
+
+const messageToasts = {
+  'message-pass': new Toast('warning', 'toast-top-left', 'First, select an audio file.  Then, add a title and notes!')
 }
 
 // showToast is called with the auth/ui and post/post-ui modules
@@ -87,7 +91,15 @@ function showToast (action, event) {
       toastr.options.positionClass = uploadToast.css
       toastr[uploadToast.type](uploadToast.msg)
       break
+    // if event is message
+    case 'message':
+      const messageToast = messageToasts[action]
+      toastr.options.positionClass = messageToast.css
+      toastr.options.timeOut = 5000
+      toastr[messageToast.type](messageToast.msg)
+      break
   }
 }
 
-module.exports = showToast
+module.exports =
+  showToast

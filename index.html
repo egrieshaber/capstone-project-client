@@ -7,6 +7,7 @@
 			<!-- Do not add `link` tags-->
 			<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 			<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+      <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
 
 			<!-- Do not add `script` tags-->
 			<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -21,7 +22,7 @@
 			<header id="field-recording-log">
 
 				<h1>Field Recording Log</h1>
-				<p>field recording log</p>
+				<!-- <p>field recording log</p> -->
 
 			</header>
 
@@ -39,7 +40,6 @@
 							<input type="password" name="credentials[password]" placeholder="Password">
 							<input type="password" name="credentials[password_confirmation]" placeholder="Comfirm Password">
 							<input type="submit" value="Sign-Up">
-              <p id="sign-up-message"></p>
 						</fieldset>
 					</form>
 
@@ -51,7 +51,6 @@
 								<!-- <input type="text" name="nickname" placeholder="Nickname (required)"> -->
 								<input type="password" name="credentials[password]" placeholder="Password">
 								<input type="submit" value="Sign-In">
-                <p id="sign-in-message"></p>
 							</fieldset>
 						</form>
 				</div>
@@ -80,9 +79,33 @@
 					<!--  log components -->
 					<div id="content">
 						<div id="top-feed-item">
-              <!-- <div id='recent-log-container'></div> -->
 							<div id="create-log-container">
 
+                <!-- file upload form -->
+                  <div class="fileUpload">
+                    <form id="multipart-form-data" name='multipart-form-data' enctype="multipart/form-data">
+                      <fieldset>
+                        <legend>File Upload</legend>
+                        <label>
+                          Title:
+                          <input type="text" name="title">
+                        </label>
+                        <label>
+                          Select Audio File
+                          <input type="file" name="audio">
+                        </label>
+                        <input type="submit" name="submit" value="Upload">
+                      </fieldset>
+                      </form>
+                  </div>
+
+                <!-- audio player -->
+                  <audio id="audio-player" controls>
+                    <source id="audio-upload" src="" type="audio/ogg">
+                      <source src="" type="audio/mpeg">
+                  </audio>
+
+                  <!-- LOG INFO -->
 									<form id="new-log">
 										<legend>Enter Your Recording</legend>
                     <input type="text" name="log[title]" placeholder="Title">
@@ -90,30 +113,7 @@
                     <input id ="link-input" type="text" name="log[link]" placeholder="Link">
 										<input class='align-self-center' id="create-log-btn"type="submit" value='Confirm'>
 									</form>
-                  <!-- audio player -->
-                  <audio id="audio-player" controls>
-                    <source id="audio-upload" src="" type="audio/ogg">
-                      <source src="" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                  </audio>
-                  <!-- file upload form -->
-                  <div class="fileUpload">
-                    <form id="multipart-form-data" name='multipart-form-data' enctype="multipart/form-data">
-                      <fieldset>
-                        <legend>File Upload</legend>
-                        <label>
-                          Title
-                          <input type="text" name="title">
-                        </label>
-                        <label>
-                          Audio
-                          <input type="file" name="audio">
-                        </label>
-                        <input type="submit" name="submit" value="Upload">
-                      </fieldset>
-                    </form>
 
-                  </div>
 							</div>
             </div>
 
@@ -124,19 +124,11 @@
               <div id="get-log-message"></div>
               <div id="update-log-message"></div>
               <div id="delete-log-message"></div>
-              <div id="get-my-log-message"></div> -->
-
-
-							<!-- handlebars templating -->
-
-
+              <div id="get-my-log-message"></div>
+              <!-- handlebars templating -->
 						</div>
 					</div>
-
-
-				</div>
-
-
+          <!-- /hidden on document ready -->
 
 			</main>
 

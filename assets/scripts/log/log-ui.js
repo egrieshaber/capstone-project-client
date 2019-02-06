@@ -114,6 +114,7 @@ const getAllMyLogsSuccess = apiData => {
   // emptyMessage()
   $('#feed').html(allMyLogs)
   showToast('allmylogs-pass', 'log')
+  showToast('message-pass', 'message')
 }
 
 const getAllMyLogsFailure = apiData => {

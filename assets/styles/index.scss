@@ -9,11 +9,42 @@
 //   padding: 0;
 //   margin: 0;
 // }
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+}
 
 main {
   input {
     border-radius: 7px;
     padding: 7px;
+  }
+
+  #sign-up {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  #sign-in {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .log-header {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .log-body {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .update-log {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .delete-log {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .no-post-message {
+    font-family: 'IBM Plex Mono', monospace;
   }
 
   #user-online {
@@ -28,6 +59,7 @@ main {
       background: grey;
       top: 0;
       left: 0;
+      font-family: 'IBM Plex Mono', monospace;
 
       li {
         display: flex;
@@ -48,9 +80,10 @@ main {
 
     #content {
       margin-left: 250px;
+      font-family: 'IBM Plex Mono', monospace;
 
       #top-feed-item {
-        background: rgb(101, 244, 66);
+        background: rgb(238, 239, 198);
         border-top-left-radius: 85px 55px;
         border-top-right-radius: 100px 20px;
         border-bottom-left-radius: 99px 90px;
@@ -58,7 +91,7 @@ main {
 
         #create-log-container {
           display: none;
-          text-align: center;
+          text-align: left;
 
           form {
             // margin-left: 100px;
@@ -108,6 +141,8 @@ button:hover {
 
 #user-modal {
   text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+}
 
   input {
     border-radius: 7px;
@@ -117,8 +152,8 @@ button:hover {
 
   #change-password-form {
     display: none;
+    font-family: 'IBM Plex Mono', monospace;
   }
-}
 
 // menu toggle btn css
 .switch {
@@ -202,4 +237,8 @@ input:checked + .slider::before {
   position: relative;
   top: 40px;
   left: 40px;
+}
+
+#update-modal {
+  font-family: 'IBM Plex Mono', monospace;
 }
