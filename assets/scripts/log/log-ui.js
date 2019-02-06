@@ -26,6 +26,9 @@ const createLogSuccess = apiData => {
   showToast('createlog-pass', 'log')
   // clears form data
   $('#new-log')[0].reset()
+  $('.title-input').val('')
+  $('.audio-file-input').val('')
+  // $('#audio-upload').val('')
   // $('#create-log-message').text('Created Log Successfully!')
   // emptyMessage()
 }

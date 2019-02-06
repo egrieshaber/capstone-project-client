@@ -95,7 +95,7 @@ function showToast (action, event) {
     case 'message':
       const messageToast = messageToasts[action]
       toastr.options.positionClass = messageToast.css
-      toastr.options.timeOut = 5000
+      toastr.options.timeOut = 7500
       toastr[messageToast.type](messageToast.msg)
       break
   }
