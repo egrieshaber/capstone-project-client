@@ -9,7 +9,7 @@ const addHandler = function () {
 
 const onUploadFile = function (event) {
   event.preventDefault()
-  console.log(event)
+  // console.log(event)
 
   const formData = new FormData(event.target)
 
