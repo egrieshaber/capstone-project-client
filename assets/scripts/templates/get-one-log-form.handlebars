@@ -3,11 +3,11 @@
     <h4>{{log.owner.username}}</h4>
   </div>
   <div class="log-body">
-    <p>{{limit log.createdAt 10}}</p>
+    <p id="log-date">{{limit log.createdAt 10}}</p>
     <form id='update-text'>
-      <input type="text" name="log[title]" type='text' value="{{log.title}}">
-      <input type="text" name="log[text]" type='text' value="{{log.text}}">
-      <input type="text" name="log[link]" type='text' value="{{log.link}}">
+      <h6>Title: </h6><input type="text" name="log[title]" type='text' placeholder="Title" value="{{log.title}}">
+      <h6>Notes: </h6><input type="text" name="log[text]" type='text' placeholder="Notes" value="{{log.text}}">
+      <h6>Link: </h6><input type="text" name="log[link]" type='text' placeholder="Link "value="{{log.link}}">
       <div>
         <input type="submit" value='Confirm'>
       </div>
