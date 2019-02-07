@@ -13,6 +13,10 @@ h1 {
   font-family: 'IBM Plex Mono', monospace;
 }
 
+title {
+  color: red;
+}
+
 main {
   input {
     border-radius: 7px;
@@ -96,9 +100,9 @@ main {
       #top-feed-item {
         background: rgb(238, 239, 198);
         border-top-left-radius: 85px 55px;
-        border-top-right-radius: 100px 20px;
-        border-bottom-left-radius: 99px 90px;
-        border-bottom-left-radius: 100px 7px;
+        border-top-right-radius: 85px 55px;
+        border-bottom-left-radius: 85px 55px;
+        border-bottom-right-radius: 85px 55px;
 
         #create-log-container {
           display: none;
