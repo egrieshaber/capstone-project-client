@@ -50,7 +50,7 @@ const uploadToasts = {
 }
 
 const messageToasts = {
-  'message-pass': new Toast('warning', 'toast-top-left', 'First, select an audio file.  Then, add a title and notes!')
+  'message-pass': new Toast('warning', 'toast-top-left', 'First, select an audio file and title it.  Then, add a note for context!')
 }
 
 // showToast is called with the auth/ui and post/post-ui modules

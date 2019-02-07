@@ -20,6 +20,8 @@ const createUploadSuccess = apiData => {
   $('#audio-player')[0].load()
   // populates link form with s3 link
   $('#link-input').val(apiData.upload.url)
+  // populates title form with upload title
+  $('#title-input').val(apiData.upload.title)
   // uses toastr to tell user of a succesful create posts
   // Look in auth/ui for a greater explanation of how toastr works
   showToast('createupdate-pass', 'update')
