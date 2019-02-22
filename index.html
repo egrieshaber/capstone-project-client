@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<title>Field Recording Log</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<!-- Do not add `link` tags-->
+			<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+			<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+      <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+
+			<!-- Do not add `script` tags-->
+			<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+			<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+			<!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> -->
+
+		</head>
+		<body>
+
+
+			<header id="field-recording-log">
+
+				<h1>Field Recording Log</h1>
+				<!-- <p>field recording log</p> -->
+
+			</header>
+
+			<main>
+
+				<div id="userForms">
+
+
+					<!-- sign-up -->
+					<form id="sign-up">
+						<fieldset>
+							<legend>Sign-Up</legend>
+							<input type="text" name="credentials[email]" placeholder="Email">
+							<input type="text" name="username" placeholder="Username (required)">
+							<input type="password" name="credentials[password]" placeholder="Password">
+							<input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+							<input type="submit" value="Sign-Up">
+						</fieldset>
+					</form>
+
+					<!-- sign-in -->
+					<form id="sign-in">
+							<fieldset>
+								<legend>Returning User? Login!</legend>
+								<input type="text" name="credentials[email]" placeholder="Email">
+								<!-- <input type="text" name="nickname" placeholder="Nickname (required)"> -->
+								<input type="password" name="credentials[password]" placeholder="Password">
+								<input type="submit" value="Sign-In">
+							</fieldset>
+						</form>
+				</div>
+
+				<!-- hidden on document ready -->
+				<div id="user-online" >
+
+					<div id="sideBar">
+						<ul class="menu">
+              <p id="welcome">Welcome to Field Recording Log</p>
+							<!-- <li><img class="quail-img" src="./public/quail-logo.png" alt="Quail logo image"></li> -->
+							<!-- <li class="menu-but"><button>Friends' Posts</button></li> -->
+							<li class="menu-but"><button type='button' id="show-auth-modal">change password / sign out</button></li>
+              <!-- <li class="menu-item">Switch View</li> -->
+							<li class="menu-but">
+								<label id="change-view" class="switch">
+									<input type="checkbox">
+									<span class="slider round"></span>
+								</label>
+                <!-- Switch View -->
+							</li>
+							<!-- <li class="menu-but"><button>blah</button></li> -->
+						</ul>
+
+					</div>
+
+					<!--  log components -->
+					<div id="content">
+						<div id="top-feed-item">
+							<div id="create-log-container">
+
+                <!-- file upload form -->
+                  <div class="fileUpload">
+                    <form id="multipart-form-data" name='multipart-form-data' enctype="multipart/form-data">
+                      <fieldset>
+                        <legend>File Upload</legend>
+                        <label>
+                          Title:
+                          <input class="title-input" type="text" name="title">
+                        </label>
+                        <label>
+                          Select Audio File
+                          <input class="audio-file-input" type="file" name="audio">
+                        </label>
+                        <input type="submit" name="submit" value="Upload">
+                      </fieldset>
+                      </form>
+                  </div>
+
+                <!-- audio player -->
+                  <audio id="audio-player" controls>
+                    <source id="audio-upload" src="" type="audio/ogg">
+                      <source src="" type="audio/mpeg">
+                  </audio>
+
+                  <!-- LOG INFO -->
+									<form id="new-log">
+										<legend>Enter Your Recording!</legend>
+                    <input id="title-input" type="text" name="log[title]" placeholder="Title">
+										<input type="text" name="log[text]" placeholder="Notes">
+                    <input id="link-input" type="text" name="log[link]" placeholder="Link">
+										<input class='align-self-center' id="create-log-btn"type="submit" value='Confirm'>
+									</form>
+
+							</div>
+            </div>
+          </div>
+
+          <!-- LOG FEED -->
+						<div id="feed">
+              <!-- <div id="create-log-message"></div> -->
+              <div id="get-log-message"></div>
+              <div id="update-log-message"></div>
+              <div id="delete-log-message"></div>
+              <div id="get-my-log-message"></div>
+
+              <!-- handlebars templating -->
+						</div>
+					</div>
+          <!-- /hidden on document ready -->
+
+			</main>
+
+			<!-- change pass/logout modal -->
+			<div class='modal fade' id='user-modal'>
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="userModalLabel">User Menu</h5>
+							<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&otimes;</span>
+							</button>
+						</div>
+						<div id='user-menu' class="modal-body">
+							<div id=user-auth-error class='error'></div>
+							<h2 id="changePassResponse"></h2>
+
+
+							<form id='change-password-form'>
+								<legend>Change Password</legend>
+								<div>
+								<div>
+									<label>Old Password</label>
+									<div id='old-pass-error' class='error'></div>
+								</div>
+									<input class='pass-form' name='passwords[old]' type='password'>
+								</div>
+								<div class='w-100'></div>
+								<div>
+									<div>
+										<label>New Password</label>
+										<div id='new-pass-error' class='error'></div>
+									</div>
+									<input class='pass-form' name='passwords[new]' type='password'>
+								</div>
+								<input id="change-pass" type="submit" value='Confirm'>
+                <p id="change-pass-message"></p>
+                <p id="sign-out-message"></p>
+							</form>
+							<button id='launch-change-password' class='btn btn-secondary form-button'>Change Password</button>
+							<button id="sign-out" class='btn btn-secondary form-button'>Sign Out</button>
+						</div>
+						<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-secondary dismiss" data-dismiss="modal">Close</button>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+      <div class='modal fade' id='update-modal'>
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="userModalLabel">User Menu</h5>
+							<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&otimes;</span>
+							</button>
+						</div>
+						<div id='update-modal-body' class="modal-body">
+						</div>
+						<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-secondary dismiss" data-dismiss="modal">Close</button>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+
+		</body>
+</html>
